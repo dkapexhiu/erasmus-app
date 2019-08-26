@@ -84,7 +84,7 @@
         handleSubmit = e => {
           fetch("/", {
             method: "POST",
-            body: encode({ "form-name": "contact", ...this.state, userId: netlifyIdentity.currentUser().id })
+            body: encode({ "form-name": "contact", ...this.state })
           })
             .then(() => alert("Success!"))
             .catch(error => alert(error));
