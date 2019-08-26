@@ -82,14 +82,13 @@
         /* Here’s the juicy bit for posting the form submission */
 
         handleSubmit = e => {
-          await fetch("/", {
+          fetch("/", {
             method: "POST",
             body: encode({ "form-name": "contact", ...this.state, userId: netlifyIdentity.currentUser().id })
           })
             .then(() => alert("Success!"))
             .catch(error => alert(error));
-
-          e.preventDefault();
+            e.preventDefault();
         };
 
         handleChange = e => this.setState({ [e.target.name]: e.target.value });
