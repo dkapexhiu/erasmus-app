@@ -98,8 +98,8 @@ function encode(data) {
             <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
               <p>
                 <label>
-                  Emri: <input type="text" name="firstname" value={firstname} onChange={this.handleChange} oninvalid="setCustomValidity('Emri eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
+                  Emri: <input type="text" name="firstname" value={firstname} onChange={this.handleChange} oninvalid={setCustomValidity('Emri eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}} required/>
                 </label>
               </p>
               <p>
