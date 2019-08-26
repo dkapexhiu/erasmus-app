@@ -98,28 +98,33 @@ function encode(data) {
             <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
               <p>
                 <label>
-                  Emri: <input type="text" name="firstname" value={firstname} onChange={this.handleChange} />
+                  Emri: <input type="text" name="firstname" value={firstname} onChange={this.handleChange} oninvalid="setCustomValidity('Emri eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} />
+                  Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} oninvalid="setCustomValidity('Mbiemri eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Email: <input type="email" name="email" value={email} onChange={this.handleChange} />
+                  Email: <input type="email" name="email" value={email} onChange={this.handleChange} oninvalid="setCustomValidity('Email eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Telefon: <input type="text" name="tel" value={tel} onChange={this.handleChange} />
+                  Telefon: <input type="text" name="tel" value={tel} onChange={this.handleChange} oninvalid="setCustomValidity('Telefoni eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>   
               <p>
                 <label>
                   Niveli i Studimit: 
-		              <select value={this.state.level} name="level" onChange={this.handleChange} noValidate>
+		              <select value={this.state.level} name="level" onChange={this.handleChange} noValidate oninvalid="setCustomValidity('Niveli i studimit eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}">
 			        <option value=""></option>
 		                <option value="bachelor">Bachelor</option>
 		                <option value="mssh">Master Shkencor</option>
@@ -129,7 +134,8 @@ function encode(data) {
               </p>      
               <p>
                 <label>
-                  Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} />
+                  Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} oninvalid="setCustomValidity('Viti aktual i studimit eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>                
               <p>
@@ -138,7 +144,8 @@ function encode(data) {
 	              <select
 		        value={this.state.faculty}
 	                name="faculty"
-	                onChange={this.handleChange}
+	                onChange={this.handleChange} oninvalid="setCustomValidity('Fakulteti ne te cilin studioni eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"
 	              >
 		        <option value=""></option>
 	                <option value="ekonomia">Fakulteti i Ekonomise</option>
@@ -154,7 +161,8 @@ function encode(data) {
               </p>  
               <p>
                 <label>
-                  Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} />
+                  Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} oninvalid="setCustomValidity('Departamenti eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>              
               <p>
@@ -164,7 +172,8 @@ function encode(data) {
 	              <select
 	                name="scholarship"
 	                onChange={this.handleChange}
-	                value={scholarship}
+	                value={scholarship} oninvalid="setCustomValidity('Fusha eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"
 	              >
 		        <option value=""></option>
 	                <option value="po">Po</option>
@@ -175,48 +184,57 @@ function encode(data) {
               <p>Nese po:</p>
               <p>
                 <label>
-                  Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} />
+                  Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} oninvalid="setCustomValidity('Universiteti ne te cilin keni qene me burse eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>   
               <p>
                 <label>
-                  Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} />
+                  Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} oninvalid="setCustomValidity('Viti kur keni qene ne erasmus eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>   
               <p>Dokumentet per t'u upload-uar:</p>           
               <p>
                 <label>
-                  Zgjidh CV-ne: <input type="file" name="cv" id="cv" onChange={this.handleAttachment} />
+                  Zgjidh CV-ne: <input type="file" name="cv" id="cv" onChange={this.handleAttachment} oninvalid="setCustomValidity('CV-ja eshte e kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} />
+                  Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} oninvalid="setCustomValidity('Pasaporta eshte e kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} />
+                  Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} oninvalid="setCustomValidity('Lista e notave ne gjuhen shqipe eshte e kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} />
+                  Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} oninvalid="setCustomValidity('Lista e notave e perkthyer zyrtarisht eshte e kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} />
+                  Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} oninvalid="setCustomValidity('Vertetim Studenti ne gjuhen shqipe eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} />
+                  Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} oninvalid="setCustomValidity('Vertetim Studenti i perkthyer ne menyre zyrtare eshte i kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} />
+                  Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} oninvalid="setCustomValidity('Certifikata e Gjuhes se Huaj eshte e kerkuar!')"
+    onchange="try{setCustomValidity('')}catch(e){}"/>
                 </label>
               </p>
               <p>
