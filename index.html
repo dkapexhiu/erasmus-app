@@ -82,7 +82,7 @@
         /* Here’s the juicy bit for posting the form submission */
 
         handleSubmit = e => {
-          await window.fetch("/", {
+          await fetch("/", {
             method: "POST",
             body: encode({ "form-name": "contact", ...this.state, userId: netlifyIdentity.currentUser().id })
           })
