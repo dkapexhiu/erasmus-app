@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+      const encode = (data) => {
+        return Object.keys(data)
+            .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+            .join("&");
+      }
+
+      class ContactForm extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { name: "", email: "", message: "" };
+        }
+
+        /* Here’s the juicy bit for posting the form submission */
+
+        handleSubmit = e => {
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...this.state })
+          })
+            .then(() => alert("Success!"))
+            .catch(error => alert(error));
+
+          e.preventDefault();
+        };
+
+        handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+        render() {
+          const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus} = this.state;
+          return (
+            <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
+              <p>
+                <label>
+                  Emri: <input type="text" name="firstname" value={firstname} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Email: <input type="email" name="email" value={email} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Telefon: <input type="text" name="tel" value={tel} onChange={this.handleChange} />
+                </label>
+              </p>   
+              <p>
+                <label>
+                  Niveli i Studimit: 
+		              <select name="level" value={level} onChange={this.handleChange} noValidate>
+		                <option value="bachelor">Bachelor</option>
+		                <option value="mssh">Master Shkencor</option>
+		                <option value="msp">Master Profesional</option>
+		              </select>                  
+                </label>
+              </p>      
+              <p>
+                <label>
+                  Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} />
+                </label>
+              </p>               
+              <p>
+                <label>
+                  Fakulteti ne te cilin studioni: <input type="text" name="education_faculty" value={education_faculty} onChange={this.handleChange} />
+                </label>
+              </p>   
+              <p>
+                <label>
+                  Fakulteti ne te cilin studioni:
+	              <select
+	                name="education_faculty"
+	                onChange={this.handleChange}
+	                value={education_faculty}
+	              >
+	                <option value="ekonomia">Fakulteti i Ekonomise</option>
+	                <option value="drejtesia">Fakulteti i Drejtesise</option>
+	                <option value="histori">
+	                  Fakulteti i Historise dhe Filologjise
+	                </option>
+	                <option value="fshn">Fakulteti i Shkencave Natyrore</option>
+	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
+	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
+	              </select>
+                </label>
+              </p>  
+              <p>
+                <label>
+                  Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} />
+                </label>
+              </p>              
+              <p>
+                <label>
+                  Jeni shpallur me pare fitues i Bursave ne kuader te programit
+                  Erasmus+?
+	              <select
+	                name="winner_scholarship"
+	                onChange={this.handleChange}
+	                value={winner_scholarship}
+	              >
+	                <option value="po">Po</option>
+	                <option value="jo">Jo</option>
+	              </select>
+                </label>
+              </p> 
+              <p>Nese po:</p>
+              <p>
+                <label>
+                  Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} />
+                </label>
+              </p>   
+              <p>
+                <label>
+                  Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} />
+                </label>
+              </p>   
+              <p>Dokumentet per t'u upload-uar:</p>           
+              <p>
+                <label>
+                  Zgjidh CV-ne: <input type="file" name="cv" value={cv} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Zgjidh kopjen e pasaportes: <input type="file" name="passport" value={passport} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" value={list_marks} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" value={list_marks_official} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" value={student_document} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" value={official_student_document} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <label>
+                  Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" value={foreign_language_certificate} onChange={this.handleChange} />
+                </label>
+              </p>
+              <p>
+                <button type="submit">Send</button>
+              </p>
+            </form>
+          );
+        }
+      }
+
+      ReactDOM.render(<ContactForm />, document.getElementById("root"));
+
+    </script>
+  </body>
+</html>
