@@ -88,12 +88,6 @@ function encode(data) {
 
         handleChange = e => {
 	this.setState({ [e.target.name]: e.target.value });
-	    let name = document.getElementById(firstname);
-	    if (name === "") {
-	      e.target.setCustomValidity("Emri eshte i detyrueshem"); 
-	    } else {
-	      e.target.setCustomValidity("");
-	    }
 	}
 	
 	handleAttachment = e => {
