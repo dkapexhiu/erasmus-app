@@ -66,7 +66,7 @@
       class ContactForm extends React.Component {
         constructor(props) {
           super(props);
-          this.state = { name: "", email: "", message: "" };
+          this.state = { name: "", email: "", message: "", level: "", faculty: "", scholarship: "" };
         }
 
         /* Here’s the juicy bit for posting the form submission */
@@ -86,7 +86,7 @@
         handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
         render() {
-          const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate} = this.state;
+          const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
           return (
             <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
               <p>
@@ -112,7 +112,7 @@
               <p>
                 <label>
                   Niveli i Studimit: 
-		              <select name="level" value={level} onChange={this.handleChange} noValidate>
+		              <select value={this.state.level} name="level" onChange={this.handleChange} noValidate>
 		                <option value="bachelor">Bachelor</option>
 		                <option value="mssh">Master Shkencor</option>
 		                <option value="msp">Master Profesional</option>
@@ -133,9 +133,9 @@
                 <label>
                   Fakulteti ne te cilin studioni:
 	              <select
+		        value={this.state.faculty}
 	                name="education_faculty"
 	                onChange={this.handleChange}
-	                value={education_faculty}
 	              >
 	                <option value="ekonomia">Fakulteti i Ekonomise</option>
 	                <option value="drejtesia">Fakulteti i Drejtesise</option>
@@ -161,6 +161,7 @@
 	                name="winner_scholarship"
 	                onChange={this.handleChange}
 	                value={winner_scholarship}
+			value={this.state.scholarship}
 	              >
 	                <option value="po">Po</option>
 	                <option value="jo">Jo</option>
@@ -181,37 +182,37 @@
               <p>Dokumentet per t'u upload-uar:</p>           
               <p>
                 <label>
-                  Zgjidh CV-ne: <input type="file" name="cv" value={cv} onChange={this.handleChange} />
+                  Zgjidh CV-ne: <input type="file" name="cv" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh kopjen e pasaportes: <input type="file" name="passport" value={passport} onChange={this.handleChange} />
+                  Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" value={list_marks} onChange={this.handleChange} />
+                  Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" value={list_marks_official} onChange={this.handleChange} />
+                  Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" value={student_document} onChange={this.handleChange} />
+                  Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" value={official_student_document} onChange={this.handleChange} />
+                  Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
                 <label>
-                  Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" value={foreign_language_certificate} onChange={this.handleChange} />
+                  Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleChange} />
                 </label>
               </p>
               <p>
