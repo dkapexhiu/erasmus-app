@@ -19,6 +19,7 @@
         <input type="email" name="email" />
 	<input type="text" name="tel" />
 			      <select name="level">
+				<option value=""></option>
 		                <option value="bachelor">Bachelor</option>
 		                <option value="mssh">Master Shkencor</option>
 		                <option value="msp">Master Profesional</option>
@@ -27,6 +28,7 @@
 	 	     <select
 	                name="education_faculty"
 	              >
+			<option value=""></option>
 	                <option value="ekonomia">Fakulteti i Ekonomise</option>
 	                <option value="drejtesia">Fakulteti i Drejtesise</option>
 	                <option value="histori">
@@ -40,6 +42,7 @@
 	 	       <select
 	                name="winner_scholarship"
 	              >
+			<option value=""></option>
 	                <option value="po">Po</option>
 	                <option value="jo">Jo</option>
 	              </select>
@@ -112,6 +115,7 @@
                 <label>
                   Niveli i Studimit: 
 		              <select value={this.state.level} name="level" onChange={this.handleChange} noValidate>
+			        <option value=""></option>
 		                <option value="bachelor">Bachelor</option>
 		                <option value="mssh">Master Shkencor</option>
 		                <option value="msp">Master Profesional</option>
@@ -131,6 +135,7 @@
 	                name="education_faculty"
 	                onChange={this.handleChange}
 	              >
+		        <option value=""></option>
 	                <option value="ekonomia">Fakulteti i Ekonomise</option>
 	                <option value="drejtesia">Fakulteti i Drejtesise</option>
 	                <option value="histori">
@@ -157,6 +162,7 @@
 	                value={winner_scholarship}
 			value={this.state.scholarship}
 	              >
+		        <option value=""></option>
 	                <option value="po">Po</option>
 	                <option value="jo">Jo</option>
 	              </select>
