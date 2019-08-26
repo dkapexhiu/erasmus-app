@@ -43,7 +43,7 @@
         handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
         render() {
-          const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, officiale_student_document, foreign_language_certificate} = this.state;
+          const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate} = this.state;
           return (
             <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
               <p>
