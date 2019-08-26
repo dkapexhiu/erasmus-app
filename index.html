@@ -71,7 +71,7 @@ function encode(data) {
       class ContactForm extends React.Component {
         constructor(props) {
           super(props);
-          this.state = { name: "", email: "", message: "", level: "", faculty: "", scholarship: "" };
+          this.state = { name: "", email: "", message: "", level: "", faculty: "", department: "", scholarship: "" };
         }
 
         /* Here’s the juicy bit for posting the form submission */
@@ -93,7 +93,7 @@ function encode(data) {
   	};
 
         render() {
-          const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
+          const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
           return (
             <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
               <p>
@@ -137,7 +137,7 @@ function encode(data) {
                   Fakulteti ne te cilin studioni:
 	              <select
 		        value={this.state.faculty}
-	                name="education_faculty"
+	                name="faculty"
 	                onChange={this.handleChange}
 	              >
 		        <option value=""></option>
