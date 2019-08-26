@@ -11,6 +11,49 @@
   <body>
 
     <div id="root"></div>
+	  
+	  <!-- A little help for the Netlify post-processing bots -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      	<input type="text" name="firstname" />
+	<input type="text" name="surname" />
+        <input type="email" name="email" />
+	<input type="text" name="tel" />
+			      <select name="level">
+		                <option value="bachelor">Bachelor</option>
+		                <option value="mssh">Master Shkencor</option>
+		                <option value="msp">Master Profesional</option>
+		              </select>  
+	 <input type="text" name="education_year" />
+	 <input type="text" name="education_faculty" /> 
+	 	     <select
+	                name="education_faculty"
+	              >
+	                <option value="ekonomia">Fakulteti i Ekonomise</option>
+	                <option value="drejtesia">Fakulteti i Drejtesise</option>
+	                <option value="histori">
+	                  Fakulteti i Historise dhe Filologjise
+	                </option>
+	                <option value="fshn">Fakulteti i Shkencave Natyrore</option>
+	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
+	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
+	             </select>
+	 <input type="text" name="department" />
+	 	       <select
+	                name="winner_scholarship"
+	              >
+	                <option value="po">Po</option>
+	                <option value="jo">Jo</option>
+	              </select>
+	    <input type="text" name="uni_erasmus" />
+	    <input type="text" name="year_erasmus" />
+	    <input type="file" name="cv" />
+	    <input type="file" name="passport" />
+	    <input type="file" name="list_marks" />
+	    <input type="file" name="list_marks_official" />
+	    <input type="file" name="student_document" />
+	    <input type="file" name="official_student_document" />
+	    <input type="file" name="foreign_language_certificate" />
+    </form>
 
     <script type="text/babel">
 
