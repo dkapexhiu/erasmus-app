@@ -58,19 +58,14 @@
 
     <script type="text/babel">
     
- const encode = (data) => {
-  const formData = new FormData()
-  Object.keys(data)
-    .map(key => {
-      if (key === 'files') {
-        for (const file of data[key]) {
-          formData.append(key, file, file.name)
-        }
-      } else {
-        formData.append(key, data[key])
-      }
-    })
-  return formData
+function encode(data) {
+  const formData = new FormData();
+
+  for (const key of Object.keys(data)) {
+    formData.append(key, data[key]);
+  }
+
+  return formData;
 }
 
       class ContactForm extends React.Component {
@@ -92,6 +87,10 @@
         };
 
         handleChange = e => this.setState({ [e.target.name]: e.target.value });
+	
+	handleAttachment = e => {
+    	  this.setState({ [e.target.name]: e.target.files[0] });
+  	};
 
         render() {
           const { firstname, surname, email, tel, level, education_year, education_faculty, department, winner_scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
@@ -188,7 +187,7 @@
               <p>Dokumentet per t'u upload-uar:</p>           
               <p>
                 <label>
-                  Zgjidh CV-ne: <input type="file" name="cv" id="cv" />
+                  Zgjidh CV-ne: <input type="file" name="cv" id="cv" onChange={this.handleAttachment}/>
                 </label>
               </p>
               <p>
