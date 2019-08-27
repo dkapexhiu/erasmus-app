@@ -127,28 +127,28 @@
              scholarship_winner.oninvalid = function(e) {
                  e.target.setCustomValidity("Fusha nese keni qene me pare fitues i programit Erasmus+ eshte e kerkuar");
              };  
-             var cv = document.getElementById("cv");
-             cv.oninvalid = function(e) {
+             var curriculum = document.getElementById("curriculum");
+             curriculum.oninvalid = function(e) {
                  e.target.setCustomValidity("Curriculum Vitae eshte i kerkuar");
              }; 
-             var passport = document.getElementById("passport");
-             passport.oninvalid = function(e) {
+             var pasaport = document.getElementById("pasaport");
+             pasaport.oninvalid = function(e) {
                  e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar");
              }; 
-             var list_marks_official = document.getElementById("list_marks_official");
-             list_marks_official.oninvalid = function(e) {
+             var marks_official = document.getElementById("marks_official");
+             marks_official.oninvalid = function(e) {
                  e.target.setCustomValidity("Lista e Notave e Perkthyer ne Menyre Zyrtare per Bachelor eshte e kerkuar");
              }; 
-             var student_document = document.getElementById("student_document");
-             student_document.oninvalid = function(e) {
+             var doc = document.getElementById("doc");
+             doc.oninvalid = function(e) {
                  e.target.setCustomValidity("Vertetim Studenti ne Gjuhen Shqipe Bachelor eshte i kerkuar");
              };
-             var official_student_document = document.getElementById("official_student_document");
-             official_student_document.oninvalid = function(e) {
+             var docs = document.getElementById("docs");
+             docs.oninvalid = function(e) {
                  e.target.setCustomValidity("Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor eshte e kerkuar");
              };
-             var foreign_language_certificate = document.getElementById("foreign_language_certificate");
-             foreign_language_certificate.oninvalid = function(e) {
+             var languages = document.getElementById("languages");
+             languages.oninvalid = function(e) {
                  e.target.setCustomValidity("Certifikata e Gjuhes se Huaj eshte e kerkuar");
              };
          	}
@@ -251,37 +251,37 @@
                        <p>Dokumentet per t'u upload-uar:</p>           
                        <p>
                          <label>
-                           Zgjidh CV-ne: <input type="file" name="cv" id="cv" onChange={this.handleAttachment} required/>
+                           Zgjidh CV-ne: <input type="file" name="cv" id="curriculum" onChange={this.handleAttachment} required/>
                          </label>
                        </p>
                        <p>
                          <label>
-                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} id="passport" required/>
+                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} id="pasaport" required/>
                          </label>
                        </p>
                        <p>
                          <label>
-                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} required/>
+                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment}/>
                          </label>
                        </p>
                        <p>
                          <label>
-                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="list_marks_official" required/>
+                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks_official" required/>
                          </label>
                        </p>
                        <p>
                          <label>
-                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="student_document" required/>
+                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="doc" required/>
                          </label>
                        </p>
                        <p>
                          <label>
-                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="official_student_document" required/>
+                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docs" required/>
                          </label>
                        </p>
                        <p>
                          <label>
-                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="foreign_language_certificate" required/>
+                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="languages" required/>
                          </label>
                        </p>
                        <p>
