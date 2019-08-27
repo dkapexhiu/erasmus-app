@@ -138,8 +138,8 @@
              curricula.oninvalid = function(e) {
                  e.target.setCustomValidity("Curriculum Vitae eshte i kerkuar");
              }; 
-             var pasaport = document.getElementById("pasaport");
-             pasaport.oninvalid = function(e) {
+             var psp = document.getElementById("psp");
+             psp.oninvalid = function(e) {
                  e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar");
              }; 
              var marks_official = document.getElementById("marks_official");
@@ -254,7 +254,7 @@
                            Zgjidh CV-ne: <input type="file" name="cv" id="curricula" onChange={this.handleAttachment} class="form-control" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="pasaport" required/>
+                           Zgjidh kopjen e pasaportes: <input type="file" name="psp" onChange={this.handleAttachment} class="form-control" id="pasaport" required/>
                        </div>
                        <div class="form-group">
                            Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control"/>
