@@ -134,8 +134,8 @@
              scholarship_winner.oninvalid = function(e) {
                  e.target.setCustomValidity("Fusha nese keni qene me pare fitues i programit Erasmus+ eshte e kerkuar");
              };  
-             var curriculum = document.getElementById("curriculum");
-             curriculum.oninvalid = function(e) {
+             var curricula = document.getElementById("curricula");
+             curricula.oninvalid = function(e) {
                  e.target.setCustomValidity("Curriculum Vitae eshte i kerkuar");
              }; 
              var pasaport = document.getElementById("pasaport");
@@ -251,7 +251,7 @@
                        </div>
                        <p>Dokumentet per t'u upload-uar:</p>           
                        <div class="form-group">
-                           Zgjidh CV-ne: <input type="file" name="cv" id="curriculum" onChange={this.handleAttachment} class="form-control" required/>
+                           Zgjidh CV-ne: <input type="file" name="cv" id="curricula" onChange={this.handleAttachment} class="form-control" required/>
                        </div>
                        <div class="form-group">
                            Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="pasaport" required/>
