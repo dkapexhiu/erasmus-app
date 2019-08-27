@@ -1,253 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Contact</title>
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  </head>
-  <body>
-
-    <div id="root"></div>
-	  
-	  <!-- A little help for the Netlify post-processing bots -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      	<input type="text" name="firstname" />
-	<input type="text" name="surname" />
-        <input type="email" name="email" />
-	<input type="text" name="tel" />
-			      <select name="level">
-				<option value=""></option>
-		                <option value="bachelor">Bachelor</option>
-		                <option value="mssh">Master Shkencor</option>
-		                <option value="msp">Master Profesional</option>
-		              </select>  
-	 <input type="text" name="education_year" />
-	 	     <select
-	                name="faculty"
-	              >
-			<option value=""></option>
-	                <option value="ekonomia">Fakulteti i Ekonomise</option>
-	                <option value="drejtesia">Fakulteti i Drejtesise</option>
-	                <option value="histori">
-	                  Fakulteti i Historise dhe Filologjise
-	                </option>
-	                <option value="fshn">Fakulteti i Shkencave Natyrore</option>
-	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
-	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
-	             </select>
-	 <input type="text" name="department" />
-	 	       <select
-	                name="scholarship"
-	              >
-			<option value=""></option>
-	                <option value="po">Po</option>
-	                <option value="jo">Jo</option>
-	              </select>
-	    <input type="text" name="uni_erasmus" />
-	    <input type="text" name="year_erasmus" />
-	    <input type="file" name="cv" />
-	    <input type="file" name="passport" />
-	    <input type="file" name="list_marks" />
-	    <input type="file" name="list_marks_official" />
-	    <input type="file" name="student_document" />
-	    <input type="file" name="official_student_document" />
-	    <input type="file" name="foreign_language_certificate" />
-    </form>
-
-    <script type="text/babel">
-    
-function encode(data) {
-  const formData = new FormData();
-
-  for (const key of Object.keys(data)) {
-    formData.append(key, data[key]);
-  }
-
-  return formData;
-}
-
-      class ContactForm extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = { firstname: "", surname: "", email: "", tel: "", level: "", faculty: "", department: "", scholarship: "", education_year: "", uni_erasmus: "", year_erasmus: "", cv: "", passport: "", list_marks: "", list_marks_official: "", student_document: "", official_student_document: "", foreign_language_certificate: "" };
-        }
-
-        /* Here’s the juicy bit for posting the form submission */
-
-        handleSubmit = e => {
-          fetch("/", {
-            method: "POST",
-            body: encode({ "form-name": "contact", ...this.state })
-          })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
-            e.preventDefault();
-        };
-
-        handleChange = e => {
-	this.setState({ [e.target.name]: e.target.value });
-	}
-	
-	handleAttachment = e => {
-    	  this.setState({ [e.target.name]: e.target.files[0] });
-  	};
-
-        render() {
-          const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
-          return (
-            <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
-              <p>
-                <label>
-                  Emri: <input type="text" name="firstname" id="firstname" value={firstname} onChange={this.handleChange} required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} oninvalid="setCustomValidity('Mbiemri eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Email: <input type="email" name="email" value={email} onChange={this.handleChange} oninvalid="setCustomValidity('Email eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Telefon: <input type="text" name="tel" value={tel} onChange={this.handleChange} oninvalid="setCustomValidity('Telefoni eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>   
-              <p>
-                <label>
-                  Niveli i Studimit: 
-		              <select value={this.state.level} name="level" onChange={this.handleChange} noValidate oninvalid="setCustomValidity('Niveli i studimit eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required>
-			        <option value=""></option>
-		                <option value="bachelor">Bachelor</option>
-		                <option value="mssh">Master Shkencor</option>
-		                <option value="msp">Master Profesional</option>
-		              </select>                  
-                </label>
-              </p>      
-              <p>
-                <label>
-                  Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} oninvalid="setCustomValidity('Viti aktual i studimit eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>                
-              <p>
-                <label>
-                  Fakulteti ne te cilin studioni:
-	              <select
-		        value={this.state.faculty}
-	                name="faculty"
-	                onChange={this.handleChange} oninvalid="setCustomValidity('Fakulteti ne te cilin studioni eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required
-	              >
-		        <option value=""></option>
-	                <option value="ekonomia">Fakulteti i Ekonomise</option>
-	                <option value="drejtesia">Fakulteti i Drejtesise</option>
-	                <option value="histori">
-	                  Fakulteti i Historise dhe Filologjise
-	                </option>
-	                <option value="fshn">Fakulteti i Shkencave Natyrore</option>
-	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
-	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
-	              </select>
-                </label>
-              </p>  
-              <p>
-                <label>
-                  Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} oninvalid="setCustomValidity('Departamenti eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>              
-              <p>
-                <label>
-                  Jeni shpallur me pare fitues i Bursave ne kuader te programit
-                  Erasmus+?
-	              <select
-	                name="scholarship"
-	                onChange={this.handleChange}
-	                value={scholarship} oninvalid="setCustomValidity('Fusha eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required
-	              >
-		        <option value=""></option>
-	                <option value="po">Po</option>
-	                <option value="jo">Jo</option>
-	              </select>
-                </label>
-              </p> 
-              <p>Nese po:</p>
-              <p>
-                <label>
-                  Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} oninvalid="setCustomValidity('Universiteti ne te cilin keni qene me burse eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}"/>
-                </label>
-              </p>   
-              <p>
-                <label>
-                  Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} oninvalid="setCustomValidity('Viti kur keni qene ne erasmus eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}"/>
-                </label>
-              </p>   
-              <p>Dokumentet per t'u upload-uar:</p>           
-              <p>
-                <label>
-                  Zgjidh CV-ne: <input type="file" name="cv" id="cv" onChange={this.handleAttachment} oninvalid="setCustomValidity('CV-ja eshte e kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} oninvalid="setCustomValidity('Pasaporta eshte e kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} oninvalid="setCustomValidity('Lista e notave ne gjuhen shqipe eshte e kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} oninvalid="setCustomValidity('Lista e notave e perkthyer zyrtarisht eshte e kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} oninvalid="setCustomValidity('Vertetim Studenti ne gjuhen shqipe eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} oninvalid="setCustomValidity('Vertetim Studenti i perkthyer ne menyre zyrtare eshte i kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} oninvalid="setCustomValidity('Certifikata e Gjuhes se Huaj eshte e kerkuar!')"
-    onchange="try{setCustomValidity('')}catch(e){}" required/>
-                </label>
-              </p>
-              <p>
-                <button type="submit">Dergo</button>
-              </p>
-            </form>
-          );
-        }
-      }
-
-      ReactDOM.render(<ContactForm />, document.getElementById("root"));
-
-    </script>
-  </body>
+   <head>
+      <meta charset="UTF-8" />
+      <title>Contact</title>
+      <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+   </head>
+   <body>
+      <div id="root"></div>
+      <!-- A little help for the Netlify post-processing bots -->
+      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+         <input type="text" name="firstname" />
+         <input type="text" name="surname" />
+         <input type="email" name="email" />
+         <input type="text" name="tel" />
+         <select name="level">
+            <option value=""></option>
+            <option value="bachelor">Bachelor</option>
+            <option value="mssh">Master Shkencor</option>
+            <option value="msp">Master Profesional</option>
+         </select>
+         <input type="text" name="education_year" />
+         <select
+            name="faculty"
+            >
+            <option value=""></option>
+            <option value="ekonomia">Fakulteti i Ekonomise</option>
+            <option value="drejtesia">Fakulteti i Drejtesise</option>
+            <option value="histori">
+               Fakulteti i Historise dhe Filologjise
+            </option>
+            <option value="fshn">Fakulteti i Shkencave Natyrore</option>
+            <option value="fshs">Fakulteti i Shkencave Sociale</option>
+            <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
+         </select>
+         <input type="text" name="department" />
+         <select
+            name="scholarship"
+            >
+            <option value=""></option>
+            <option value="po">Po</option>
+            <option value="jo">Jo</option>
+         </select>
+         <input type="text" name="uni_erasmus" />
+         <input type="text" name="year_erasmus" />
+         <input type="file" name="cv" />
+         <input type="file" name="passport" />
+         <input type="file" name="list_marks" />
+         <input type="file" name="list_marks_official" />
+         <input type="file" name="student_document" />
+         <input type="file" name="official_student_document" />
+         <input type="file" name="foreign_language_certificate" />
+      </form>
+      <script type="text/babel">
+         function encode(data) {
+           const formData = new FormData();
+         
+           for (const key of Object.keys(data)) {
+             formData.append(key, data[key]);
+           }
+         
+           return formData;
+         }
+         
+               class ContactForm extends React.Component {
+                 constructor(props) {
+                   super(props);
+                   this.state = { firstname: "", surname: "", email: "", tel: "", level: "", faculty: "", department: "", scholarship: "", education_year: "", uni_erasmus: "", year_erasmus: "", cv: "", passport: "", list_marks: "", list_marks_official: "", student_document: "", official_student_document: "", foreign_language_certificate: "" };
+                 }
+         
+                 /* Here’s the juicy bit for posting the form submission */
+         
+                 handleSubmit = e => {
+                   fetch("/", {
+                     method: "POST",
+                     body: encode({ "form-name": "contact", ...this.state })
+                   })
+                     .then(() => alert("Success!"))
+                     .catch(error => alert(error));
+                     e.preventDefault();
+                 };
+         
+             handleChange = e => {
+         	this.setState({ [e.target.name]: e.target.value });
+         	}
+         	
+         	handleAttachment = e => {
+             	  this.setState({ [e.target.name]: e.target.files[0] });
+           	};
+         
+           	componentDidMount(e){
+             var fname = document.getElementById("name");
+             fname.oninvalid = function(e) {
+                 e.target.setCustomValidity("Emri eshte i kerkuar!");
+             };
+             var sname = document.getElementById("sname");
+             sname.oninvalid = function(e) {
+                 e.target.setCustomValidity("Mbiemri eshte i kerkuar!");
+             };  
+             var mail = document.getElementById("mail");
+             mail.oninvalid = function(e) {
+                 e.target.setCustomValidity("Email nuk eshte i rregullt!");
+             };
+             var tel = document.getElementById("tel");
+             tel.oninvalid = function(e) {
+                 e.target.setCustomValidity("Telefon nuk eshte i rregullt!");
+             };  
+             var level = document.getElementById("level");
+             level.oninvalid = function(e) {
+                 e.target.setCustomValidity("Niveli i studimit eshte i kerkuar");
+             };  
+             var edu_year = document.getElementById("edu_year");
+             edu_year.oninvalid = function(e) {
+                 e.target.setCustomValidity("Viti aktual i studimit eshte i kerkuar");
+             }; 
+             var actual_faculty = document.getElementById("actual_faculty");
+             actual_faculty.oninvalid = function(e) {
+                 e.target.setCustomValidity("Fakulteti ne te cilin studioni aktualisht eshte i kerkuar");
+             }; 
+             var faculty_department = document.getElementById("faculty_department");
+             faculty_department.oninvalid = function(e) {
+                 e.target.setCustomValidity("Departamenti i fakultetit eshte i kerkuar");
+             };
+             var scholarship_winner = document.getElementById("scholarship_winner");
+             scholarship_winner.oninvalid = function(e) {
+                 e.target.setCustomValidity("Fusha nese keni qene me pare fitues i programit Erasmus+ eshte e kerkuar");
+             };  
+             var cv = document.getElementById("cv");
+             cv.oninvalid = function(e) {
+                 e.target.setCustomValidity("Curriculum Vitae eshte i kerkuar");
+             }; 
+             var passport = document.getElementById("passport");
+             passport.oninvalid = function(e) {
+                 e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar");
+             }; 
+             var list_marks_official = document.getElementById("list_marks_official");
+             list_marks_official.oninvalid = function(e) {
+                 e.target.setCustomValidity("Lista e Notave e Perkthyer ne Menyre Zyrtare per Bachelor eshte e kerkuar");
+             }; 
+             var student_document = document.getElementById("student_document");
+             student_document.oninvalid = function(e) {
+                 e.target.setCustomValidity("Vertetim Studenti ne Gjuhen Shqipe Bachelor eshte i kerkuar");
+             };
+             var official_student_document = document.getElementById("official_student_document");
+             official_student_document.oninvalid = function(e) {
+                 e.target.setCustomValidity("Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor eshte e kerkuar");
+             };
+             var foreign_language_certificate = document.getElementById("foreign_language_certificate");
+             foreign_language_certificate.oninvalid = function(e) {
+                 e.target.setCustomValidity("Certifikata e Gjuhes se Huaj eshte e kerkuar");
+             };
+         	}
+         
+         
+         
+                 render() {
+                   const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
+                   return (
+                     <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
+                       <p>
+                         <label>
+                           Emri: <input type="text" name="firstname" id="name" value={firstname} onChange={this.handleChange} required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} id="sname" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Email: <input type="text" name="email" value={email} onChange={this.handleChange} id="mail" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Telefon: <input type="tel" name="tel" value={tel} onChange={this.handleChange} id="tel" required/>
+                         </label>
+                       </p>   
+                       <p>
+                         <label>
+                           Niveli i Studimit: 
+         		              <select value={level} name="level" onChange={this.handleChange} id="level" required>
+         			        	<option value=""></option>
+         		                <option value="bachelor">Bachelor</option>
+         		                <option value="mssh">Master Shkencor</option>
+         		                <option value="msp">Master Profesional</option>
+         		              </select>                  
+                         </label>
+                       </p>      
+                       <p>
+                         <label>
+                           Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} id="edu_year" required/>
+                         </label>
+                       </p>                
+                       <p>
+                         <label>
+                           Fakulteti ne te cilin studioni:
+         	              <select
+         		        value={faculty}
+         	                name="faculty"
+         	                onChange={this.handleChange} id="actual_faculty" required
+         	              >
+         		        <option value=""></option>
+         	                <option value="ekonomia">Fakulteti i Ekonomise</option>
+         	                <option value="drejtesia">Fakulteti i Drejtesise</option>
+         	                <option value="histori">
+         	                  Fakulteti i Historise dhe Filologjise
+         	                </option>
+         	                <option value="fshn">Fakulteti i Shkencave Natyrore</option>
+         	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
+         	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
+         	              </select>
+                         </label>
+                       </p>  
+                       <p>
+                         <label>
+                           Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} id="faculty_department" required/>
+                         </label>
+                       </p>              
+                       <p>
+                         <label>
+                           Jeni shpallur me pare fitues i Bursave ne kuader te programit
+                           Erasmus+?
+         	              <select
+         	                name="scholarship"
+         	                onChange={this.handleChange}
+         	                value={scholarship}  
+         	                id="scholarship_winner"
+         	                required
+         	              >
+         		        <option value=""></option>
+         	                <option value="po">Po</option>
+         	                <option value="jo">Jo</option>
+         	              </select>
+                         </label>
+                       </p> 
+                       <p>Nese po:</p>
+                       <p>
+                         <label>
+                           Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} />
+                         </label>
+                       </p>   
+                       <p>
+                         <label>
+                           Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} />
+                         </label>
+                       </p>   
+                       <p>Dokumentet per t'u upload-uar:</p>           
+                       <p>
+                         <label>
+                           Zgjidh CV-ne: <input type="file" name="cv" id="cv" onChange={this.handleAttachment} required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} id="passport" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="list_marks_official" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="student_document" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="official_student_document" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <label>
+                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="foreign_language_certificate" required/>
+                         </label>
+                       </p>
+                       <p>
+                         <button type="submit">Dergo</button>
+                       </p>
+                     </form>
+                   );
+                 }
+               }
+         
+               ReactDOM.render(<ContactForm />, document.getElementById("root"));
+         
+             
+      </script>
+   </body>
 </html>
