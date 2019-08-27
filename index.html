@@ -142,8 +142,8 @@
              psp.oninvalid = function(e) {
                  e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar");
              }; 
-             var marks = document.getElementById("marks");
-             marks.oninvalid = function(e) {
+             var marks = document.getElementById("marks2");
+             marks2.oninvalid = function(e) {
                  e.target.setCustomValidity("Lista e Notave e Perkthyer ne Menyre Zyrtare per Bachelor eshte e kerkuar");
              }; 
              var docu = document.getElementById("docu");
@@ -260,7 +260,7 @@
                            Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control"/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks" class="form-control" required/>
+                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks2" class="form-control" required/>
                        </div>
                        <div class="form-group">
                            Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="docu" class="form-control" required/>
