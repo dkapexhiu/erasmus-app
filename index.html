@@ -2,7 +2,14 @@
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
-      <title>Contact</title>
+      <title>Aplikime Erasmus+</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   	  <style>
+   	  .logo{display:block; margin-left:auto; margin-right:auto;}
+   	  .title{text-align:center;color:goldenrod;}
+   	  form{width:70%; margin-left:auto; margin-right:auto;display:block;}
+   	  .btn{margin-left:auto; margin-right:auto;display:block;}
+   	  </style>
       <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
       <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
       <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
@@ -18,8 +25,8 @@
          <select name="level">
             <option value=""></option>
             <option value="bachelor">Bachelor</option>
-            <option value="mssh">Master Shkencor</option>
-            <option value="msp">Master Profesional</option>
+            <option value="master_shkencor">Master Shkencor</option>
+            <option value="master_profesional">Master Profesional</option>
          </select>
          <input type="text" name="education_year" />
          <select
@@ -159,49 +166,51 @@
                    const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
                    return (
                      <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
-                       <p>
-                         <label>
-                           Emri: <input type="text" name="firstname" id="name" value={firstname} onChange={this.handleChange} required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} id="sname" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Email: <input type="text" name="email" value={email} onChange={this.handleChange} id="mail" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Telefon: <input type="tel" name="tel" value={tel} onChange={this.handleChange} id="tel" required/>
-                         </label>
-                       </p>   
-                       <p>
-                         <label>
+                       <div class="form-group">
+                       		<img class="logo" src="img/logo.png" />
+                       		<h1 class="title">Aplikime Erasmus+ K1</h1>
+                       		<p>
+                       		A jeni të interesuar për bursa studimi jashtë vendit? A jeni të interesuar të kryeni një periudhë mobiliteti në universitetet më prestigjoze të Europës? 
+                       		Ky është vendi i duhur. Kjo është mundësia Juaj. Universiteti i Tiranës është pjesë e programit më të ri, ‘‘ Erasmus +’’, të lançuar nga Bashkimi Europian, 
+                       		i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra. 
+                       		Llojet e mobilitetit, të ofruara nga ky program, përfshijnë shkëmbimin e studentëve për studime në ciklin e I, II dhe të III si 
+                       		dhe shkëmbimin e stafit akademik/administrativ për mësimdhënie/trajnim.
+                       		</p>
+                            <h5 class="title">Ploteso formularin me poshte per tu bere pjese e programit</h5>
+                       </div>
+                       <div class="form-group">
+                           Emri: <input type="text" name="firstname" id="name" value={firstname} onChange={this.handleChange} class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} id="sname" class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Email: <input type="text" name="email" value={email} onChange={this.handleChange} id="mail" class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Telefon: <input type="tel" name="tel" value={tel} onChange={this.handleChange} id="tel" class="form-control" required/>
+                       </div>   
+                       <div class="form-group">
                            Niveli i Studimit: 
-         		              <select value={level} name="level" onChange={this.handleChange} id="level" required>
+         		              <select value={level} name="level" onChange={this.handleChange} id="level" class="form-control" required>
          			        	<option value=""></option>
          		                <option value="bachelor">Bachelor</option>
-         		                <option value="mssh">Master Shkencor</option>
-         		                <option value="msp">Master Profesional</option>
+         		                <option value="master_shkencor">Master Shkencor</option>
+         		                <option value="master_profesional">Master Profesional</option>
          		              </select>                  
-                         </label>
-                       </p>      
-                       <p>
-                         <label>
-                           Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} id="edu_year" required/>
-                         </label>
-                       </p>                
-                       <p>
-                         <label>
+                       </div>         
+                       <div class="form-group">
+                           Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} id="edu_year" class="form-control" required/>
+                       </div>              
+                       <div class="form-group">
                            Fakulteti ne te cilin studioni:
          	              <select
-         		        value={faculty}
+         		        	value={faculty}
          	                name="faculty"
-         	                onChange={this.handleChange} id="actual_faculty" required
+         	                onChange={this.handleChange} 
+         	                id="actual_faculty" 
+         	                class="form-control" 
+         	                required
          	              >
          		        <option value=""></option>
          	                <option value="ekonomia">Fakulteti i Ekonomise</option>
@@ -213,15 +222,11 @@
          	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
          	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
          	              </select>
-                         </label>
-                       </p>  
-                       <p>
-                         <label>
-                           Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} id="faculty_department" required/>
-                         </label>
-                       </p>              
-                       <p>
-                         <label>
+                       </div> 
+                       <div class="form-group">
+                           Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} id="faculty_department" class="form-control" required/>
+                       </div>              
+                       <div class="form-group">
                            Jeni shpallur me pare fitues i Bursave ne kuader te programit
                            Erasmus+?
          	              <select
@@ -229,64 +234,46 @@
          	                onChange={this.handleChange}
          	                value={scholarship}  
          	                id="scholarship_winner"
+         	                class="form-control"
          	                required
          	              >
-         		        <option value=""></option>
+         		        	<option value=""></option>
          	                <option value="po">Po</option>
          	                <option value="jo">Jo</option>
          	              </select>
-                         </label>
-                       </p> 
+                       </div>
                        <p>Nese po:</p>
-                       <p>
-                         <label>
-                           Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} />
-                         </label>
-                       </p>   
-                       <p>
-                         <label>
-                           Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} />
-                         </label>
-                       </p>   
+                       <div class="form-group">
+                           Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} class="form-control" />
+                       </div> 
+                       <div class="form-group">
+                           Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} class="form-control" />
+                       </div>
                        <p>Dokumentet per t'u upload-uar:</p>           
-                       <p>
-                         <label>
-                           Zgjidh CV-ne: <input type="file" name="cv" id="curriculum" onChange={this.handleAttachment} required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} id="pasaport" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment}/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks_official" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="doc" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docs" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <label>
-                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="languages" required/>
-                         </label>
-                       </p>
-                       <p>
-                         <button type="submit">Dergo</button>
-                       </p>
+                       <div class="form-group">
+                           Zgjidh CV-ne: <input type="file" name="cv" id="curriculum" onChange={this.handleAttachment} class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="pasaport" required/>
+                       </div>
+                       <div class="form-group">
+                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control"/>
+                       </div>
+                       <div class="form-group">
+                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks_official" class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="doc" class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docs" class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="languages" class="form-control" required/>
+                       </div>
+                       <div class="form-group">
+                         <button type="submit" class="btn btn-info">Dergo</button>
+                       </div>
                      </form>
                    );
                  }
