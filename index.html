@@ -19,6 +19,18 @@
    </head>
    <body>
       <div id="root"></div>
+	   <header>
+                       		<img class="logo" src="img/logo.png" />
+                       		<h1 class="title">Aplikime Erasmus+ K1</h1>
+                       		<p>
+                       		A jeni të interesuar për bursa studimi jashtë vendit? A jeni të interesuar të kryeni një periudhë mobiliteti në universitetet më prestigjoze të Europës? 
+                       		Ky është vendi i duhur. Kjo është mundësia Juaj. Universiteti i Tiranës është pjesë e programit më të ri, ‘‘ Erasmus +’’, të lançuar nga Bashkimi Europian, 
+                       		i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra. 
+                       		Llojet e mobilitetit, të ofruara nga ky program, përfshijnë shkëmbimin e studentëve për studime në ciklin e I, II dhe të III si 
+                       		dhe shkëmbimin e stafit akademik/administrativ për mësimdhënie/trajnim.
+                       		</p>
+                            <h5 class="title">Ploteso formularin me poshte per tu bere pjese e programit</h5>
+	   </header>
       <!-- A little help for the Netlify post-processing bots -->
       <form name="contact" netlify netlify-honeypot="bot-field" hidden>
          <input type="text" name="firstname" />
@@ -169,18 +181,6 @@
                    const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
                    return (
                      <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
-                       <div class="form-group">
-                       		<img class="logo" src="img/logo.png" />
-                       		<h1 class="title">Aplikime Erasmus+ K1</h1>
-                       		<p>
-                       		A jeni të interesuar për bursa studimi jashtë vendit? A jeni të interesuar të kryeni një periudhë mobiliteti në universitetet më prestigjoze të Europës? 
-                       		Ky është vendi i duhur. Kjo është mundësia Juaj. Universiteti i Tiranës është pjesë e programit më të ri, ‘‘ Erasmus +’’, të lançuar nga Bashkimi Europian, 
-                       		i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra. 
-                       		Llojet e mobilitetit, të ofruara nga ky program, përfshijnë shkëmbimin e studentëve për studime në ciklin e I, II dhe të III si 
-                       		dhe shkëmbimin e stafit akademik/administrativ për mësimdhënie/trajnim.
-                       		</p>
-                            <h5 class="title">Ploteso formularin me poshte per tu bere pjese e programit</h5>
-                       </div>
                        <div class="form-group">
                            Emri: <input type="text" name="firstname" id="name" value={firstname} onChange={this.handleChange} class="form-control" required/>
                        </div>
