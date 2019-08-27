@@ -1,318 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <title>Aplikime Erasmus+</title>
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-      <link href="//fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-      <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-      <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-      <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-   </head>
-   <body>
-	   	   <header>
-                       		<img class="logo" src="img/logo.png" />
-                       		<h1 class="title">Aplikime Erasmus+ K1</h1>
-                       		<p class="headp">
-                       		A jeni të interesuar për bursa studimi jashtë vendit? A jeni të interesuar të kryeni një periudhë mobiliteti në universitetet më prestigjoze të Europës? 
-                       		Ky është vendi i duhur. Kjo është mundësia Juaj. Universiteti i Tiranës është pjesë e programit më të ri, ‘‘ Erasmus +’’, të lançuar nga Bashkimi Europian, 
-                       		i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra. 
-                       		Llojet e mobilitetit, të ofruara nga ky program, përfshijnë shkëmbimin e studentëve për studime në ciklin e I, II dhe të III si 
-                       		dhe shkëmbimin e stafit akademik/administrativ për mësimdhënie/trajnim.
-                       		</p>
-                            <h5 class="title">Ploteso formularin me poshte per tu bere pjese e programit</h5>
-	   </header>
-      <div id="root"></div>
-      <!-- A little help for the Netlify post-processing bots -->
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-         <input type="text" name="firstname" />
-         <input type="text" name="surname" />
-         <input type="email" name="email" />
-         <input type="text" name="tel" />
-         <select name="level">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Aplikime Erasmus+</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="//fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="img/logo.png" />
+        <h1 class="title">Aplikime Erasmus+ K1</h1>
+        <p class="headp">
+            A jeni të interesuar për bursa studimi jashtë vendit? A jeni të interesuar të kryeni një periudhë mobiliteti në universitetet më prestigjoze të Europës? Ky është vendi i duhur. Kjo është mundësia Juaj. Universiteti i Tiranës është pjesë e programit më të ri, ‘‘ Erasmus +’’, të lançuar nga Bashkimi Europian, i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra. Llojet e mobilitetit, të ofruara nga ky program, përfshijnë shkëmbimin e studentëve për studime në ciklin e I, II dhe të III si dhe shkëmbimin e stafit akademik/administrativ për mësimdhënie/trajnim.
+        </p>
+        <h5 class="title">Ploteso formularin me poshte per tu bere pjese e programit</h5>
+    </header>
+    <div id="root"></div>
+    <!-- A little help for the Netlify post-processing bots -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="firstname" />
+        <input type="text" name="surname" />
+        <input type="email" name="email" />
+        <input type="text" name="tel" />
+        <select name="level">
             <option value=""></option>
             <option value="bachelor">Bachelor</option>
             <option value="master_shkencor">Master Shkencor</option>
             <option value="master_profesional">Master Profesional</option>
-         </select>
-         <input type="text" name="education_year" />
-         <select
-            name="faculty"
-            >
+        </select>
+        <input type="text" name="education_year" />
+        <select name="faculty">
             <option value=""></option>
             <option value="ekonomia">Fakulteti i Ekonomise</option>
             <option value="drejtesia">Fakulteti i Drejtesise</option>
             <option value="histori">
-               Fakulteti i Historise dhe Filologjise
+                Fakulteti i Historise dhe Filologjise
             </option>
             <option value="fshn">Fakulteti i Shkencave Natyrore</option>
             <option value="fshs">Fakulteti i Shkencave Sociale</option>
             <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
-         </select>
-         <input type="text" name="department" />
-         <select
-            name="scholarship"
-            >
+        </select>
+        <input type="text" name="department" />
+        <select name="scholarship">
             <option value=""></option>
             <option value="po">Po</option>
             <option value="jo">Jo</option>
-         </select>
-         <input type="text" name="uni_erasmus" />
-         <input type="text" name="year_erasmus" />
-         <input type="file" name="cv" />
-         <input type="file" name="passport" />
-         <input type="file" name="list_marks" />
-         <input type="file" name="list_marks_official" />
-         <input type="file" name="student_document" />
-         <input type="file" name="official_student_document" />
-         <input type="file" name="foreign_language_certificate" />
-      </form>
-      <script type="text/babel">
-         function encode(data) {
-           const formData = new FormData();
-         
-           for (const key of Object.keys(data)) {
-             formData.append(key, data[key]);
-           }
-         
-           return formData;
-         }
-         
-               class ContactForm extends React.Component {
-                 constructor(props) {
-                   super(props);
-                   this.state = { firstname: "", surname: "", email: "", tel: "", level: "", faculty: "", department: "", scholarship: "", education_year: "", uni_erasmus: "", year_erasmus: "", cv: "", passport: "", list_marks: "", list_marks_official: "", student_document: "", official_student_document: "", foreign_language_certificate: "" };
-                 }
-         
-                 /* Here’s the juicy bit for posting the form submission */
-         
-                 handleSubmit = e => {
-                   fetch("/", {
-                     method: "POST",
-                     body: encode({ "form-name": "contact", ...this.state })
-                   })
-		     .then(() => alert("Kerkesa u realizua me sukses! Faleminderit per aplikimin!"))
-                     .catch(error => alert(error));
-                     e.preventDefault();
-                 };
-         
-             handleChange = e => {
-         	this.setState({ [e.target.name]: e.target.value });
-         	}
-         	
-         	handleAttachment = e => {
-             	  this.setState({ [e.target.name]: e.target.files[0] });
-           	};
-         
-           	componentDidMount(e){
-             var fname = document.getElementById("name");
-             fname.oninvalid = function(e) {
-                 e.target.setCustomValidity("Emri eshte i kerkuar!");
-             };
-             var sname = document.getElementById("sname");
-             sname.oninvalid = function(e) {
-                 e.target.setCustomValidity("Mbiemri eshte i kerkuar!");
-             };  
-             var mail = document.getElementById("mail");
-             mail.oninvalid = function(e) {
-                 e.target.setCustomValidity("Email nuk eshte i rregullt!");
-             };
-             var tel = document.getElementById("tel");
-             tel.oninvalid = function(e) {
-                 e.target.setCustomValidity("Telefon nuk eshte i rregullt!");
-             };  
-             var level = document.getElementById("level");
-             level.oninvalid = function(e) {
-                 e.target.setCustomValidity("Niveli i studimit eshte i kerkuar");
-             };  
-             var edu_year = document.getElementById("edu_year");
-             edu_year.oninvalid = function(e) {
-                 e.target.setCustomValidity("Viti aktual i studimit eshte i kerkuar");
-             }; 
-             var actual_faculty = document.getElementById("actual_faculty");
-             actual_faculty.oninvalid = function(e) {
-                 e.target.setCustomValidity("Fakulteti ne te cilin studioni aktualisht eshte i kerkuar");
-             }; 
-             var faculty_department = document.getElementById("faculty_department");
-             faculty_department.oninvalid = function(e) {
-                 e.target.setCustomValidity("Departamenti i fakultetit eshte i kerkuar");
-             };
-             var scholarship_winner = document.getElementById("scholarship_winner");
-             scholarship_winner.oninvalid = function(e) {
-                 e.target.setCustomValidity("Fusha nese keni qene me pare fitues i programit Erasmus+ eshte e kerkuar");
-             };  
-             var curricula = document.getElementById("curricula");
-             curricula.oninvalid = function(e) {
-                 e.target.setCustomValidity("Curriculum Vitae eshte i kerkuar");
-             }; 
-             var psp = document.getElementById("psp");
-             psp.oninvalid = function(e) {
-                 e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar");
-             }; 
-             var marks = document.getElementById("marks2");
-             marks2.oninvalid = function(e) {
-                 e.target.setCustomValidity("Lista e Notave e Perkthyer ne Menyre Zyrtare per Bachelor eshte e kerkuar");
-             }; 
-             var docu1 = document.getElementById("docu1");
-             docu1.oninvalid = function(e) {
-                 e.target.setCustomValidity("Vertetim Studenti ne Gjuhen Shqipe Bachelor eshte i kerkuar");
-             };
-             var docu2 = document.getElementById("docu2");
-             docu2.oninvalid = function(e) {
-                 e.target.setCustomValidity("Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor eshte e kerkuar");
-             };
-             var lang = document.getElementById("lang");
-             lang.oninvalid = function(e) {
-                 e.target.setCustomValidity("Certifikata e Gjuhes se Huaj eshte e kerkuar");
-             };
-         	}
-         
-         
-         
-                 render() {
-                   const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state;
-                   return (
-                     <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
-                       <div class="form-group">
-                           Emri: <input type="text" name="firstname" id="name" value={firstname} onChange={this.handleChange} class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Mbiemri: <input type="text" name="surname" value={surname} onChange={this.handleChange} id="sname" class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Email: <input type="text" name="email" value={email} onChange={this.handleChange} id="mail" class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Telefon: <input type="tel" name="tel" value={tel} onChange={this.handleChange} id="tel" class="form-control" required/>
-                       </div>   
-                       <div class="form-group">
-                           Niveli i Studimit: 
-         		              <select value={level} name="level" onChange={this.handleChange} id="level" class="form-control" required>
-         			        	<option value=""></option>
-         		                <option value="bachelor">Bachelor</option>
-         		                <option value="master_shkencor">Master Shkencor</option>
-         		                <option value="master_profesional">Master Profesional</option>
-         		              </select>                  
-                       </div>         
-                       <div class="form-group">
-                           Viti aktual i studimit: <input type="text" name="education_year" value={education_year} onChange={this.handleChange} id="edu_year" class="form-control" required/>
-                       </div>              
-                       <div class="form-group">
-                           Fakulteti ne te cilin studioni:
-         	              <select
-         		        	value={faculty}
-         	                name="faculty"
-         	                onChange={this.handleChange} 
-         	                id="actual_faculty" 
-         	                class="form-control" 
-         	                required
-         	              >
-         		        <option value=""></option>
-         	                <option value="ekonomia">Fakulteti i Ekonomise</option>
-         	                <option value="drejtesia">Fakulteti i Drejtesise</option>
-         	                <option value="histori">
-         	                  Fakulteti i Historise dhe Filologjise
-         	                </option>
-         	                <option value="fshn">Fakulteti i Shkencave Natyrore</option>
-         	                <option value="fshs">Fakulteti i Shkencave Sociale</option>
-         	                <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
-         	              </select>
-                       </div> 
-                       <div class="form-group">
-                           Departamenti: <input type="text" name="department" value={department} onChange={this.handleChange} id="faculty_department" class="form-control" required/>
-                       </div>              
-                       <div class="form-group">
-                           Jeni shpallur me pare fitues i Bursave ne kuader te programit
-                           Erasmus+?
-         	              <select
-         	                name="scholarship"
-         	                onChange={this.handleChange}
-         	                value={scholarship}  
-         	                id="scholarship_winner"
-         	                class="form-control"
-         	                required
-         	              >
-         		        	<option value=""></option>
-         	                <option value="po">Po</option>
-         	                <option value="jo">Jo</option>
-         	              </select>
-                       </div>
-                       <p>Nese po:</p>
-                       <div class="form-group">
-                           Ne cilin universitet: <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} class="form-control" />
-                       </div> 
-                       <div class="form-group">
-                           Ne cilin vit: <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} class="form-control" />
-                       </div>
-                       <p>Dokumentet per t'u upload-uar:</p>           
-                       <div class="form-group">
-                           Zgjidh CV-ne: <input type="file" name="cv" id="curricula" onChange={this.handleAttachment} class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="psp" required/>
-                       </div>
-                       <div class="form-group">
-                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control"/>
-                       </div>
-                       <div class="form-group">
-                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks2" class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="docu1" class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docu2" class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="lang" class="form-control" required/>
-                       </div>
-                       <div class="form-group">
-                         <button type="submit" class="btn btn-info">Dergo</button>
-                       </div>
-       
-                     </form>
-                   );
-                 }
-               }
-         
-               ReactDOM.render(<ContactForm />, document.getElementById("root"));
-      </script>
-      		<footer class="footer-distributed">
+        </select>
+        <input type="text" name="uni_erasmus" />
+        <input type="text" name="year_erasmus" />
+        <input type="file" name="cv" />
+        <input type="file" name="passport" />
+        <input type="file" name="list_marks" />
+        <input type="file" name="list_marks_official" />
+        <input type="file" name="student_document" />
+        <input type="file" name="official_student_document" />
+        <input type="file" name="foreign_language_certificate" />
+    </form>
+    <script type="text/babel">
+        function encode(data) { const formData = new FormData(); for (const key of Object.keys(data)) { formData.append(key, data[key]); } return formData; } class ContactForm extends React.Component { constructor(props) { super(props); this.state = { firstname: "", surname: "", email: "", tel: "", level: "", faculty: "", department: "", scholarship: "", education_year: "", uni_erasmus: "", year_erasmus: "", cv: "", passport: "", list_marks: "", list_marks_official: "", student_document: "", official_student_document: "", foreign_language_certificate: "" }; } /* Here’s the juicy bit for posting the form submission */ handleSubmit = e => { fetch("/", { method: "POST", body: encode({ "form-name": "contact", ...this.state }) }) .then(() => alert("Kerkesa u realizua me sukses! Faleminderit per aplikimin!")) .catch(error => alert(error)); e.preventDefault(); }; handleChange = e => { this.setState({ [e.target.name]: e.target.value }); } handleAttachment = e => { this.setState({ [e.target.name]: e.target.files[0] }); }; componentDidMount(e){ var fname = document.getElementById("name"); fname.oninvalid = function(e) { e.target.setCustomValidity("Emri eshte i kerkuar!"); }; var sname = document.getElementById("sname"); sname.oninvalid = function(e) { e.target.setCustomValidity("Mbiemri eshte i kerkuar!"); }; var mail = document.getElementById("mail"); mail.oninvalid = function(e) { e.target.setCustomValidity("Email nuk eshte i rregullt!"); }; var tel = document.getElementById("tel"); tel.oninvalid = function(e) { e.target.setCustomValidity("Telefon nuk eshte i rregullt!"); }; var level = document.getElementById("level"); level.oninvalid = function(e) { e.target.setCustomValidity("Niveli i studimit eshte i kerkuar"); }; var edu_year = document.getElementById("edu_year"); edu_year.oninvalid = function(e) { e.target.setCustomValidity("Viti aktual i studimit eshte i kerkuar"); }; var actual_faculty = document.getElementById("actual_faculty"); actual_faculty.oninvalid = function(e) { e.target.setCustomValidity("Fakulteti ne te cilin studioni aktualisht eshte i kerkuar"); }; var faculty_department = document.getElementById("faculty_department"); faculty_department.oninvalid = function(e) { e.target.setCustomValidity("Departamenti i fakultetit eshte i kerkuar"); }; var scholarship_winner = document.getElementById("scholarship_winner"); scholarship_winner.oninvalid = function(e) { e.target.setCustomValidity("Fusha nese keni qene me pare fitues i programit Erasmus+ eshte e kerkuar"); }; var curricula = document.getElementById("curricula"); curricula.oninvalid = function(e) { e.target.setCustomValidity("Curriculum Vitae eshte i kerkuar"); }; var psp = document.getElementById("psp"); psp.oninvalid = function(e) { e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar"); }; var marks = document.getElementById("marks2"); marks2.oninvalid = function(e) { e.target.setCustomValidity("Lista e Notave e Perkthyer ne Menyre Zyrtare per Bachelor eshte e kerkuar"); }; var docu1 = document.getElementById("docu1"); docu1.oninvalid = function(e) { e.target.setCustomValidity("Vertetim Studenti ne Gjuhen Shqipe Bachelor eshte i kerkuar"); }; var docu2 = document.getElementById("docu2"); docu2.oninvalid = function(e) { e.target.setCustomValidity("Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor eshte e kerkuar"); }; var lang = document.getElementById("lang"); lang.oninvalid = function(e) { e.target.setCustomValidity("Certifikata e Gjuhes se Huaj eshte e kerkuar"); }; } render() { const { firstname, surname, email, tel, level, education_year, faculty, department, scholarship, uni_erasmus, year_erasmus, cv, passport, list_marks, list_marks_official, student_document, official_student_document, foreign_language_certificate } = this.state; return (
+        <form name="contact" method="post" netlify data-netlify="true" onSubmit={this.handleSubmit}>
+            <div class="form-group">
+                Emri:
+                <input type="text" name="firstname" id="name" value={firstname} onChange={this.handleChange} class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Mbiemri:
+                <input type="text" name="surname" value={surname} onChange={this.handleChange} id="sname" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Email:
+                <input type="text" name="email" value={email} onChange={this.handleChange} id="mail" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Telefon:
+                <input type="tel" name="tel" value={tel} onChange={this.handleChange} id="tel" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Niveli i Studimit:
+                <select value={level} name="level" onChange={this.handleChange} id="level" class="form-control" required>
+                    <option value=""></option>
+                    <option value="bachelor">Bachelor</option>
+                    <option value="master_shkencor">Master Shkencor</option>
+                    <option value="master_profesional">Master Profesional</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Viti aktual i studimit:
+                <input type="text" name="education_year" value={education_year} onChange={this.handleChange} id="edu_year" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Fakulteti ne te cilin studioni:
+                <select value={faculty} name="faculty" onChange={this.handleChange} id="actual_faculty" class="form-control" required>
+                    <option value=""></option>
+                    <option value="ekonomia">Fakulteti i Ekonomise</option>
+                    <option value="drejtesia">Fakulteti i Drejtesise</option>
+                    <option value="histori">
+                        Fakulteti i Historise dhe Filologjise
+                    </option>
+                    <option value="fshn">Fakulteti i Shkencave Natyrore</option>
+                    <option value="fshs">Fakulteti i Shkencave Sociale</option>
+                    <option value="fgjh">Fakulteti i Gjuheve te Huaja</option>
+                </select>
+            </div>
+            <div class="form-group">
+                Departamenti:
+                <input type="text" name="department" value={department} onChange={this.handleChange} id="faculty_department" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Jeni shpallur me pare fitues i Bursave ne kuader te programit Erasmus+?
+                <select name="scholarship" onChange={this.handleChange} value={scholarship} id="scholarship_winner" class="form-control" required>
+                    <option value=""></option>
+                    <option value="po">Po</option>
+                    <option value="jo">Jo</option>
+                </select>
+            </div>
+            <p>Nese po:</p>
+            <div class="form-group">
+                Ne cilin universitet:
+                <input type="text" name="uni_erasmus" value={uni_erasmus} onChange={this.handleChange} class="form-control" />
+            </div>
+            <div class="form-group">
+                Ne cilin vit:
+                <input type="text" name="year_erasmus" value={year_erasmus} onChange={this.handleChange} class="form-control" />
+            </div>
+            <p>Dokumentet per t'u upload-uar:</p>
+            <div class="form-group">
+                Zgjidh CV-ne:
+                <input type="file" name="cv" id="curricula" onChange={this.handleAttachment} class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Zgjidh kopjen e pasaportes:
+                <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="psp" required/>
+            </div>
+            <div class="form-group">
+                Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor:
+                <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control" />
+            </div>
+            <div class="form-group">
+                Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor:
+                <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks2" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor:
+                <input type="file" name="student_document" onChange={this.handleAttachment} id="docu1" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor:
+                <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docu2" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                Zgjidh Certifikaten e Gjuhes se Huaj:
+                <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="lang" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info">Dergo</button>
+            </div>
 
-			<div class="footer-left">
-         <img src="img/logo1.png" style="height: 128px;width: 128px;">
-				<h3>Universiteti<span>Tiranes</span></h3>
+        </form>
+        ); } } ReactDOM.render(
 
-				<p class="footer-company-name">© 2019 Universiteti i Tiranes</p>
-			</div>
+        <ContactForm />, document.getElementById("root"));
+    </script>
+    <footer class="footer-distributed">
 
-			<div class="footer-center">
-				<div>
-					<i class="fa fa-map-marker"></i>
-					  <p>
-					  Rektorati,
-					  Sheshi “Nënë Tereza”
-                      Kutia Postare Nr. 183,
-                      Tiranë, Shqipëri
-					  </p>
-				</div>
+        <div class="footer-left">
+            <img src="img/logo1.png" style="height: 128px;width: 128px;">
+            <h3>Universiteti<span>Tiranes</span></h3>
 
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:info@unitir.edu.al">info@unitir.edu.al</a></p>
-				</div>
-			</div>
-			<div class="footer-right">
-				<p class="footer-company-about">
-					<span>Rreth Erasmus+ K1</span>
-					Universiteti i Tiranës është pjesë e programit më të ri, Erasmus +, të lançuar nga Bashkimi Europian, i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra.
-				</p>
-				<div class="footer-icons">
-					<a href="//www.facebook.com/pages/Universiteti-i-Tiranes-Faqja-Zyrtare/109920519178721"><i class="fa fa-facebook"></i></a>
-				</div>
-			</div>
-		</footer>
-   </body>
+            <p class="footer-company-name">© 2019 Universiteti i Tiranes</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p>
+                    Rektorati, Sheshi “Nënë Tereza” Kutia Postare Nr. 183, Tiranë, Shqipëri
+                </p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:info@unitir.edu.al">info@unitir.edu.al</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>Rreth Erasmus+ K1</span> Universiteti i Tiranës është pjesë e programit më të ri, Erasmus +, të lançuar nga Bashkimi Europian, i cili synon ndër të tjera krijimin e mundësive të studimit, mësimdhënies dhe trajnimit jashtë vendit në periudha të shkurtëra.
+            </p>
+            <div class="footer-icons">
+                <a href="//www.facebook.com/pages/Universiteti-i-Tiranes-Faqja-Zyrtare/109920519178721"><i class="fa fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
 </html>
