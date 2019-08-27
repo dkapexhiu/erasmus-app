@@ -142,20 +142,20 @@
              psp.oninvalid = function(e) {
                  e.target.setCustomValidity("Kopja e pasaportes eshte e kerkuar");
              }; 
-             var marks_official = document.getElementById("marks_official");
-             marks_official.oninvalid = function(e) {
+             var marks = document.getElementById("marks");
+             marks.oninvalid = function(e) {
                  e.target.setCustomValidity("Lista e Notave e Perkthyer ne Menyre Zyrtare per Bachelor eshte e kerkuar");
              }; 
-             var doc = document.getElementById("doc");
-             doc.oninvalid = function(e) {
+             var doc = document.getElementById("docs");
+             docs.oninvalid = function(e) {
                  e.target.setCustomValidity("Vertetim Studenti ne Gjuhen Shqipe Bachelor eshte i kerkuar");
              };
-             var docs = document.getElementById("docs");
+             var docus = document.getElementById("docus");
              docs.oninvalid = function(e) {
                  e.target.setCustomValidity("Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor eshte e kerkuar");
              };
-             var languages = document.getElementById("languages");
-             languages.oninvalid = function(e) {
+             var langs = document.getElementById("langs");
+             langs.oninvalid = function(e) {
                  e.target.setCustomValidity("Certifikata e Gjuhes se Huaj eshte e kerkuar");
              };
          	}
@@ -260,16 +260,16 @@
                            Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control"/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks_official" class="form-control" required/>
+                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks" class="form-control" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="doc" class="form-control" required/>
+                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="docu" class="form-control" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docs" class="form-control" required/>
+                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docus" class="form-control" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="languages" class="form-control" required/>
+                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="langs" class="form-control" required/>
                        </div>
                        <div class="form-group">
                          <button type="submit" class="btn btn-info">Dergo</button>
