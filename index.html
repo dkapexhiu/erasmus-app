@@ -93,7 +93,7 @@
                      method: "POST",
                      body: encode({ "form-name": "contact", ...this.state })
                    })
-		     .then(() => alert("Kerkesa u realizua me sukses! Faleminderit per aplikimin!"))
+		     .then(() => if(!alert('Kerkesa juaj u dergua me sukses! Faleminderit per aplikimin!')){window.location.reload();})
                      .catch(error => alert(error));
                      e.preventDefault();
                  };
