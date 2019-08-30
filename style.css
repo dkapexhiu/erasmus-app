@@ -41,6 +41,7 @@
      color: #ffffff;
      font: normal 36px 'Cookie', cursive;
      margin: 0;
+     text-align: center;
 }
 /* The company logo */
  .footer-distributed .footer-left img{
@@ -65,6 +66,7 @@
      font-size: 14px;
      font-weight: normal;
      margin: 0;
+     text-align: center;
 }
 /* Footer Center */
  .footer-distributed .footer-center{
