@@ -162,6 +162,7 @@
     display:block;
      margin-left:auto;
      margin-right:auto;
+     height: 128px;
 }
  .title{
     text-align:center;
