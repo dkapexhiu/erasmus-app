@@ -107,6 +107,14 @@
          	
          	handleAttachment = e => {
              	  this.setState({ [e.target.name]: e.target.files[0] });
+		  let file_size = event.target.files[0].size/ 1024 / 1024;
+	if (file_size > 2) {
+            alert('File size exceeds 2 MB');
+	    return false;
+        } else {
+            //
+        }
+		  
            	};
          
            	componentDidMount(e){
