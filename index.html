@@ -263,22 +263,28 @@
   application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="psp" required/>
+                           Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="psp" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control"/>
+                           Zgjidh Listen e Notave ne Gjuhen Shqipe Bachelor: <input type="file" name="list_marks" onChange={this.handleAttachment} class="form-control" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks2" class="form-control" required/>
+                           Zgjidh Listen e Notave te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="list_marks_official" onChange={this.handleAttachment} id="marks2" class="form-control" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="docu1" class="form-control" required/>
+                           Zgjidh Vertetim Studenti ne Gjuhen Shqipe Bachelor: <input type="file" name="student_document" onChange={this.handleAttachment} id="docu1" class="form-control" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docu2" class="form-control" required/>
+                           Zgjidh Vertetim Studenti te Perkthyer ne Menyre Zyrtare Bachelor: <input type="file" name="official_student_document" onChange={this.handleAttachment} id="docu2" class="form-control" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
-                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="lang" class="form-control" required/>
+                           Zgjidh Certifikaten e Gjuhes se Huaj: <input type="file" name="foreign_language_certificate" onChange={this.handleAttachment} id="lang" class="form-control" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
                          <button type="submit" class="btn btn-info">Dergo</button>
