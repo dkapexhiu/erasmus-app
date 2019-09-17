@@ -106,14 +106,19 @@
          	}
          	
          	handleAttachment = e => {
-             	  this.setState({ [e.target.name]: e.target.files[0] });
-		  let file_size = event.target.files[0].size/ 1024;
-	if (file_size > 300) {
-            alert('Dokumenti tejkalon 300KB!');
-	    e.target.value=null;
-        } else {
-            //
-        }
+             	this.setState({ [e.target.name]: e.target.files[0] });
+		  		let file_size = event.target.files[0].size/ 1024;
+				if (file_size > 300) {
+            		alert('Dokumenti tejkalon 300KB!');
+	    		e.target.value=null;
+        		}
+			   	let myfile= event.target.files[0].val();
+			   	var ext = myfile.split('.').pop();
+			   	if(ext=="pdf" || ext=="docx" || ext=="doc"){
+			       alert('ok');
+			   	} else{
+			       alert('not ok');
+			   	}
 		  
            	};
          
