@@ -259,7 +259,8 @@
                        </div>
                        <p>Dokumentet per t'u upload-uar:</p>           
                        <div class="form-group">
-                           Zgjidh CV-ne: <input type="file" name="cv" id="curricula" onChange={this.handleAttachment} class="form-control" required/>
+                           Zgjidh CV-ne: <input type="file" name="cv" id="curricula" onChange={this.handleAttachment} class="form-control" accept="application/pdf,application/msword,
+  application/vnd.openxmlformats-officedocument.wordprocessingml.document" required/>
                        </div>
                        <div class="form-group">
                            Zgjidh kopjen e pasaportes: <input type="file" name="passport" onChange={this.handleAttachment} class="form-control" id="psp" required/>
