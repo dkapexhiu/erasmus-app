@@ -107,9 +107,9 @@
          	
          	handleAttachment = e => {
              	  this.setState({ [e.target.name]: e.target.files[0] });
-		  let file_size = event.target.files[0].size/ 1024 / 1024;
-	if (file_size > 1) {
-            alert('Dokumenti tejkalon 1MB!');
+		  let file_size = event.target.files[0].size/ 1024;
+	if (file_size > 300) {
+            alert('Dokumenti tejkalon 300KB!');
 	    e.target.value=null;
         } else {
             //
